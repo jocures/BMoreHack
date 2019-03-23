@@ -1,0 +1,26 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <%= text_input f, :title, placeholder: "Job Title" %>
+  <%= error_tag f, :title %>
+
+  <%= date_select f, :deadline, placeholder: "Application Deadline", year: [options: 2019..2021] %>
+  <%= error_tag f, :deadline %>
+
+  <%= number_input f, :salary_min, placeholder: "Salary Minimum" %>
+  <%= error_tag f, :salary_min %>
+
+  <%= number_input f, :salary_max, placeholder: "Salary Maximum" %>
+  <%= error_tag f, :salary_max %>
+
+  <%= url_input f, :link, placeholder: "Link to Job Description/Posting" %>
+  <%= error_tag f, :link %>
+
+  <div>
+    <%= submit "Next" %>
+  </div>
+<% end %>
