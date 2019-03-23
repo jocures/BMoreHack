@@ -20,6 +20,7 @@ defmodule GohiremeWeb.Router do
     resources "/signup", UserController
     resources "/login", UserSessionController, only: [:new, :create]
     delete "/logout", UserSessionController, :delete
+    resources "/company", CompanyController
   end
 
   # Other scopes may use custom stacks.

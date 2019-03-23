@@ -73,3 +73,8 @@ config :gohireme, Gohireme.Repo,
   database: "gohireme_dev",
   hostname: "localhost",
   pool_size: 10
+
+config :cloudex,
+  api_key: "685919493573241",
+  secret: "ACNb5PxWoRypVI9CqblcF7ov-mQ",
+  cloud_name: "hkwuxrg7p"

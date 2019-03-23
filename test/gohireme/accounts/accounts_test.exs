@@ -63,4 +63,69 @@ defmodule Gohireme.AccountsTest do
       assert %Ecto.Changeset{} = Accounts.change_user(user)
     end
   end
+
+  describe "companies" do
+    alias Gohireme.Accounts.Company
+
+    @valid_attrs %{company_description: "some company_description", company_logo: "some company_logo", company_name: "some company_name", company_url: "some company_url"}
+    @update_attrs %{company_description: "some updated company_description", company_logo: "some updated company_logo", company_name: "some updated company_name", company_url: "some updated company_url"}
+    @invalid_attrs %{company_description: nil, company_logo: nil, company_name: nil, company_url: nil}
+
+    def company_fixture(attrs \\ %{}) do
+      {:ok, company} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> Accounts.create_company()
+
+      company
+    end
+
+    test "list_companies/0 returns all companies" do
+      company = company_fixture()
+      assert Accounts.list_companies() == [company]
+    end
+
+    test "get_company!/1 returns the company with given id" do
+      company = company_fixture()
+      assert Accounts.get_company!(company.id) == company
+    end
+
+    test "create_company/1 with valid data creates a company" do
+      assert {:ok, %Company{} = company} = Accounts.create_company(@valid_attrs)
+      assert company.company_description == "some company_description"
+      assert company.company_logo == "some company_logo"
+      assert company.company_name == "some company_name"
+      assert company.company_url == "some company_url"
+    end
+
+    test "create_company/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Accounts.create_company(@invalid_attrs)
+    end
+
+    test "update_company/2 with valid data updates the company" do
+      company = company_fixture()
+      assert {:ok, %Company{} = company} = Accounts.update_company(company, @update_attrs)
+      assert company.company_description == "some updated company_description"
+      assert company.company_logo == "some updated company_logo"
+      assert company.company_name == "some updated company_name"
+      assert company.company_url == "some updated company_url"
+    end
+
+    test "update_company/2 with invalid data returns error changeset" do
+      company = company_fixture()
+      assert {:error, %Ecto.Changeset{}} = Accounts.update_company(company, @invalid_attrs)
+      assert company == Accounts.get_company!(company.id)
+    end
+
+    test "delete_company/1 deletes the company" do
+      company = company_fixture()
+      assert {:ok, %Company{}} = Accounts.delete_company(company)
+      assert_raise Ecto.NoResultsError, fn -> Accounts.get_company!(company.id) end
+    end
+
+    test "change_company/1 returns a company changeset" do
+      company = company_fixture()
+      assert %Ecto.Changeset{} = Accounts.change_company(company)
+    end
+  end
 end

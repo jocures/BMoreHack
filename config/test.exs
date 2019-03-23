@@ -16,3 +16,6 @@ config :gohireme, Gohireme.Repo,
   database: "gohireme_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+config :arc,
+  storage: Arc.Storage.Local
