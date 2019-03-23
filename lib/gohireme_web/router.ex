@@ -31,6 +31,8 @@ defmodule GohiremeWeb.Router do
     resources "/pitch", PitchController, only: [:new, :create, :update]
     resources "/fundme", CandidateVideoController, only: [:new, :create, :update]
     resources "/hireme", HireVideoController, only: [:new, :create, :update]
+    get "/profile", ProfileController, :edit
+    put "/candidate_profile", CandidateProfileController, :update
   end
 
   # Other scopes may use custom stacks.
