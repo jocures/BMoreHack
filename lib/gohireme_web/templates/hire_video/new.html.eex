@@ -1,0 +1,6 @@
+<h1>Post your pitch video for employers.</h1>
+<p>Show prospective employers why you'd be a great addition to their team!</p>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.hire_video_path(@conn, :update, @candidate)) %>
+
+<%= link "Back to your pitch.", to: Routes.candidate_video_path(@conn, :new) %>
