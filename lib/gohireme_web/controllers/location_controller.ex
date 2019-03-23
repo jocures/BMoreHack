@@ -24,4 +24,8 @@ defmodule GohiremeWeb.LocationController do
         render(conn, "new.html", changeset: changeset, candidate: candidate)
     end
   end
+
+  def update(conn, _params) do
+    redirect(conn, to: Routes.candidate_picture_path(conn, :new))
+  end
 end

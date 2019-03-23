@@ -24,4 +24,8 @@ defmodule GohiremeWeb.SalaryController do
         render(conn, "new.html", changeset: changeset, candidate: candidate)
     end
   end
+
+  def update(conn, _params) do
+    redirect(conn, to: Routes.location_path(conn, :new))
+  end
 end
