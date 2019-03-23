@@ -14,6 +14,10 @@ defmodule Gohireme.Accounts.Company do
     field :size, :string
     field :industry, :string
     field :location, :string
+    field :point_of_contact_first_name, :string
+    field :point_of_contact_last_name, :string
+    field :point_of_contact_phone, :string
+    field :point_of_contact_email, :string
 
     belongs_to :user, User
 
@@ -24,7 +28,8 @@ defmodule Gohireme.Accounts.Company do
   def changeset(company, attrs) do
     company
     |> cast(attrs, [:user_id, :company_name, :company_description, :company_url, :company_logo,
-    :contact_info, :mission, :size,  :industry, :location])
+    :contact_info, :mission, :size,  :industry, :location, :point_of_contact_first_name,
+    :point_of_contact_last_name, :point_of_contact_phone, :point_of_contact_email])
     |> validate_required([:user_id, :company_name, :company_description, :company_url])
   end
 end

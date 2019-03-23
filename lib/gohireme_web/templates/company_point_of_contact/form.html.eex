@@ -4,7 +4,18 @@
       <p>Oops, something went wrong! Please check the errors below.</p>
     </div>
   <% end %>
-  <p>Fill in this form: point of contact</p>
+
+  <%= text_input f, :point_of_contact_first_name, placeholder: "First Name" %>
+  <%= error_tag f, :point_of_contact_first_name %>
+
+  <%= text_input f, :point_of_contact_last_name, placeholder: "Last Name" %>
+  <%= error_tag f, :point_of_contact_last_name %>
+
+  <%= telephone_input f, :point_of_contact_phone, placeholder: "Phone" %>
+  <%= error_tag f, :point_of_contact_phone %>
+
+  <%= email_input f, :point_of_contact_email, placeholder: "E-mail", value: @company.user.email %>
+  <%= error_tag f, :point_of_contact_email %>
 
   <div>
     <%= submit "Next" %>
