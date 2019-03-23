@@ -24,6 +24,7 @@ defmodule GohiremeWeb.Router do
     resources "/company_secondary_details", CompanySecondaryDetailsController, only: [:new, :create, :update]
     resources "/company_point_of_contact", CompanyPointOfContactController, only: [:new, :create, :update]
     resources "/company_job_posting", CompanyJobPostingController, only: [:new, :create, :update]
+    resources "/job_posting", JobPostingController, only: [:new, :create, :update]
     resources "/candidate", CandidateController
     resources "/industry", IndustryController, only: [:new, :create, :update]
     resources "/salary", SalaryController, only: [:new, :create, :update]

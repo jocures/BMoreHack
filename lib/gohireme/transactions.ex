@@ -41,7 +41,7 @@ defmodule Gohireme.Transactions do
   ## Examples
 
       iex> create_job_posting(%{field: value})
-      {:ok, %Company{}}
+      {:ok, %JobPosting{}}
 
       iex> create_job_posting(%{field: bad_value})
       {:error, %Ecto.Changeset{}}
@@ -52,4 +52,20 @@ defmodule Gohireme.Transactions do
     |> JobPosting.changeset(attrs)
     |> Repo.insert()
   end
+
+  @doc """
+  Gets a single job_posting.
+
+  Raises `Ecto.NoResultsError` if the JobPosting does not exist.
+
+  ## Examples
+
+      iex> get_job_posting!(123)
+      %JobPosting{}
+
+      iex> get_job_posting!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_job_posting!(id), do: Repo.get!(JobPosting, id)
 end
