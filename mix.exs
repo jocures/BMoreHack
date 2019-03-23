@@ -44,7 +44,8 @@ defmodule Gohireme.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:comeonin, "~> 5.1.1"},
-      {:argon2_elixir, "~> 2.0"}
+      {:argon2_elixir, "~> 2.0"},
+      {:cloudex, "~> 1.2.1"}
     ]
   end
 

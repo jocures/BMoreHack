@@ -14,13 +14,17 @@ defmodule GohiremeWeb.UserController do
     render(conn, "new.html", changeset: changeset)
   end
 
+  defp create_profile(conn, %User{role: "employer"}) do
+    redirect(conn, to: Routes.company_path(conn, :new))
+  end
+
   def create(conn, %{"user" => user_params}) do
     case Accounts.create_user(user_params) do
       {:ok, user} ->
         conn
         |> put_session(:current_user_id, user.id)
         |> put_flash(:info, "User created successfully.")
-        |> redirect(to: Routes.user_path(conn, :show, user))
+        |> create_profile(user)
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)

@@ -76,3 +76,8 @@ config :logger, level: :info
 
 # Finally import the config/prod.secret.exs which should be versioned
 # separately.
+
+config :cloudex,
+  api_key: System.get_env("CLOUDINARY_API_KEY"),
+  secret: System.get_env("CLOUDINARY_SECRET"),
+  cloud_name: System.get_env("CLOUDINARY_CLOUD_NAME")
