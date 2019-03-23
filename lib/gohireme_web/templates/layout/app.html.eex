@@ -4,23 +4,16 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Gohireme · Phoenix Framework</title>
+    <title>Leveled</title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
   </head>
   <body>
     <header>
       <section class="container">
         <nav role="navigation">
-          <ul>
-            <%= if Plug.Conn.get_session(@conn, :current_user_id) do %>
-              <li><%= link "Logout", to: Routes.user_session_path(@conn, :delete), method: :delete %></li>
-            <% end %>
-            <%= if is_nil(Plug.Conn.get_session(@conn, :current_user_id)) do %>
-              <li><%= link "Login", to: Routes.user_session_path(@conn, :new) %></li>
-              <li><%= link "Sign up", to: Routes.user_path(@conn, :new) %></li>
-            <% end %>
-          </ul>
+          <%= render_navigation @conn %>
         </nav>
+        <h1>Leveled</h1>
       </section>
     </header>
     <main role="main" class="container">
