@@ -1,0 +1,5 @@
+<h1>Point of Contact</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.company_point_of_contact_path(@conn, :update, @company)) %>
+
+<%= link "Back", to: Routes.company_secondary_details_path(@conn, :new) %>

@@ -213,6 +213,21 @@ defmodule Gohireme.Accounts do
     Company.changeset(company, %{})
   end
 
+  @doc """
+  Gets a company by a user's id.
+
+  ## Examples
+
+      iex> get_company_for_user(1)
+      %Company{user_id: 1}
+
+      iex> get_company_for_user(200)
+      nil
+  """
+  def get_company_for_user(user_id) do
+    Repo.get_by(Company, user_id: user_id)
+  end
+
   alias Gohireme.Accounts.Candidate
 
   @doc """
