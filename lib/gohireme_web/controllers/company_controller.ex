@@ -18,8 +18,8 @@ defmodule GohiremeWeb.CompanyController do
     user_id = get_session(conn, :current_user_id)
     company_params = case Map.get(company_params, "company_logo") do
       nil -> Map.put(company_params, "user_id", user_id)
-      logo -> 
-        {:ok, %{public_id: public_id}} = Cloudex.upload(logo.path) 
+      logo ->
+        {:ok, %{public_id: public_id}} = Cloudex.upload(logo.path)
         Map.merge(company_params, %{"company_logo" => public_id, "user_id" => user_id})
     end
 
@@ -27,7 +27,7 @@ defmodule GohiremeWeb.CompanyController do
       {:ok, company} ->
         conn
         |> put_flash(:info, "Company created successfully.")
-        |> redirect(to: Routes.company_path(conn, :show, company))
+        |> redirect(to: Routes.company_secondary_details_path(conn, :new))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
@@ -52,7 +52,7 @@ defmodule GohiremeWeb.CompanyController do
       {:ok, company} ->
         conn
         |> put_flash(:info, "Company updated successfully.")
-        |> redirect(to: Routes.company_path(conn, :show, company))
+        |> redirect(to: Routes.company_secondary_details_path(conn, :new))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", company: company, changeset: changeset)
