@@ -20,9 +20,13 @@ defmodule GohiremeWeb.PitchController do
 
     case Accounts.update_candidate(candidate, candidate_params) do
       {:ok, %Candidate{}} ->
-        redirect(conn, to: Routes.candidate_video_path(@conn, :new))
+        redirect(conn, to: Routes.candidate_video_path(conn, :new))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", candidate: candidate, changeset: changeset)
     end
+  end
+
+  def update(conn, _params) do
+    redirect(conn, to: Routes.candidate_video_path(conn, :new))
   end
 end
