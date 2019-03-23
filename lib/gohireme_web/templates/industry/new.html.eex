@@ -1,0 +1,5 @@
+<h1>Goals</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.industry_path(@conn, :update, @candidate)) %>
+
+<%= link "Back to your name", to: Routes.candidate_path(@conn, :new) %>

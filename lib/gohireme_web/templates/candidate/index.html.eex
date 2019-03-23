@@ -1,0 +1,38 @@
+<h1>Listing Candidates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Salary min</th>
+      <th>Salary max</th>
+      <th>Location</th>
+      <th>Desired job title</th>
+      <th>Desired industry</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for candidate <- @candidates do %>
+    <tr>
+      <td><%= candidate.first_name %></td>
+      <td><%= candidate.last_name %></td>
+      <td><%= candidate.salary_min %></td>
+      <td><%= candidate.salary_max %></td>
+      <td><%= candidate.location %></td>
+      <td><%= candidate.desired_job_title %></td>
+      <td><%= candidate.desired_industry %></td>
+
+      <td>
+        <%= link "Show", to: Routes.candidate_path(@conn, :show, candidate) %>
+        <%= link "Edit", to: Routes.candidate_path(@conn, :edit, candidate) %>
+        <%= link "Delete", to: Routes.candidate_path(@conn, :delete, candidate), method: :delete, data: [confirm: "Are you sure?"] %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Candidate", to: Routes.candidate_path(@conn, :new) %></span>

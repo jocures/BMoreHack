@@ -1,0 +1,5 @@
+<h1>Let's get your picture.</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.candidate_picture_path(@conn, :update, @candidate)) %>
+
+<%= link "Back to location information", to: Routes.location_path(@conn, :new) %>
