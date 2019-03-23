@@ -1,0 +1,28 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <%= label f, :pitch, "Write a short pitch (no more than 140 characters)" %>
+  <%= textarea f, :pitch, max_length: 140 %>
+  <div>Remaining characters: <span id="pitch_counter"><%= 140 - pitch_length(@candidate.pitch) %></span></div>
+  <%= error_tag f, :pitch %>
+
+  <%= label f, :story, "What's your story? (Think of this as a long-form pitch)" %>
+  <%= textarea f, :story %>
+  <%= error_tag f, :story %>
+
+  <%= label f, :linked_in_url, "Do you have a LinkedIn profile?" %>
+  <%= url_input f, :linked_in_url %>
+  <%= error_tag f, :linked_in_url %>
+
+  <%= label f, :personal_website, "And do you have a personal website?" %>
+  <%= url_input f, :personal_website %>
+  <%= error_tag f, :personal_website %>
+
+  <div>
+    <%= submit "You need a pitch video!" %>
+  </div>
+<% end %>

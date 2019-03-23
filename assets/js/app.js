@@ -17,3 +17,5 @@ import "phoenix_html"
 // import socket from "./socket"
 
 import "./set_raise"
+
+import "./pitch_counter"

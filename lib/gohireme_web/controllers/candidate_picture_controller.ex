@@ -26,14 +26,14 @@ defmodule GohiremeWeb.CandidatePictureController do
 
     case Accounts.update(candidate, candidate_params) do
       {:ok, %Candidate{}} ->
-        redirect(conn, to: Routes.pitch_controller(conn, :new))
+        redirect(conn, to: Routes.pitch_path(conn, :new))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset, candidate: candidate)
     end
   end
 
   def update(conn, params) do
-    redirect(conn, to: Routes.pitch_controller(conn, :new))
+    redirect(conn, to: Routes.pitch_path(conn, :new))
   end
 
 end

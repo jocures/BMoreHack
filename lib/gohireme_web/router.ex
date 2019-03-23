@@ -26,6 +26,7 @@ defmodule GohiremeWeb.Router do
     resources "/salary", SalaryController, only: [:new, :create, :update]
     resources "/location", LocationController, only: [:new, :create, :update]
     resources "/smile", CandidatePictureController, only: [:new, :create, :update]
+    resources "/pitch", PitchController, only: [:new, :create, :update]
   end
 
   # Other scopes may use custom stacks.
