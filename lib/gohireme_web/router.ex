@@ -18,7 +18,8 @@ defmodule GohiremeWeb.Router do
 
     get "/", PageController, :index
     resources "/signup", UserController
-    resources "/login", UserSessionController, [:new, :create, :delete]
+    resources "/login", UserSessionController, only: [:new, :create]
+    delete "/logout", UserSessionController, :delete
   end
 
   # Other scopes may use custom stacks.
