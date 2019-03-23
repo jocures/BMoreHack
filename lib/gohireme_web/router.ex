@@ -17,6 +17,8 @@ defmodule GohiremeWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    resources "/signup", UserController
+    resources "/login", UserSessionController, [:new, :create, :delete]
   end
 
   # Other scopes may use custom stacks.
