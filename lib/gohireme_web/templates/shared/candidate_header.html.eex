@@ -1,0 +1,6 @@
+<ul>
+  <li><%= link "My Account", to: "/" %></li>
+  <li><%= link "Job Board", to: "/" %></li>
+  <li><%= link "My Raise", to: "/" %></li>
+  <li><%= link "Logout", to: Routes.user_session_path(@conn, :delete), method: :delete %></li>
+</ul>

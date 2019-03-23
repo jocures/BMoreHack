@@ -1,3 +1,19 @@
 /* This file is for your main application css. */
 
 @import "./phoenix.css";
+
+/* Center text in header. */
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+header h1 {
+  margin-bottom: 0;
+}
+
+header section.container {
+  padding: 1rem 0;
+}

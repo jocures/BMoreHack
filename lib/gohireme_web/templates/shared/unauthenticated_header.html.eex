@@ -1,0 +1,4 @@
+<ul>
+  <li><%= link "Login", to: Routes.user_session_path(@conn, :new) %></li>
+  <li><%= link "Sign up", to: Routes.user_path(@conn, :new) %></li>
+</ul>

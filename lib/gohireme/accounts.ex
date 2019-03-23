@@ -7,6 +7,8 @@ defmodule Gohireme.Accounts do
   alias Gohireme.Repo
 
   alias Gohireme.Accounts.User
+  alias Gohireme.Accounts.Company
+  alias Gohireme.Accounts.Candidate
 
   @doc """
   Returns the list of users.
@@ -50,6 +52,22 @@ defmodule Gohireme.Accounts do
   """
   def get_user_by_email(email) do
     Repo.get_by(User, email: email)
+  end
+
+  @doc """
+  Returns the user supertype (Candidate or Company) from their user id.
+  """
+  def get_user_type(nil), do: nil
+
+  def get_user_type(user_id) do
+    case get_company_for_user(user_id) do
+      %Company{} = company -> company
+      _ ->
+        case get_candidate_for_user(user_id) do
+          %Candidate{} = candidate -> candidate
+          _ -> nil
+        end
+    end
   end
 
   @doc """
@@ -116,8 +134,6 @@ defmodule Gohireme.Accounts do
   def change_user(%User{} = user) do
     User.changeset(user, %{})
   end
-
-  alias Gohireme.Accounts.Company
 
   @doc """
   Returns the list of companies.
@@ -227,8 +243,6 @@ defmodule Gohireme.Accounts do
   def get_company_for_user(user_id) do
     Repo.get_by(Company, user_id: user_id)
   end
-
-  alias Gohireme.Accounts.Candidate
 
   @doc """
   Returns the list of candidates.
