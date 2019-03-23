@@ -1,0 +1,6 @@
+<h1>Post your funding pitch video.</h1>
+<p>This one is for the people funding you. Show them why you're amazing and worth supporting!</p>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.candidate_video_path(@conn, :update, @candidate)) %>
+
+<%= link "Back to your pitch.", to: Routes.pitch_path(@conn, :new) %>
