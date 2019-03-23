@@ -15,11 +15,12 @@ defmodule GohiremeWeb.CompanyController do
   end
 
   def create(conn, %{"company" => company_params}) do
+    user_id = get_session(conn, :current_user_id)
     company_params = case Map.get(company_params, "company_logo") do
-      nil -> company_params
+      nil -> Map.put(company_params, "user_id", user_id)
       logo -> 
         {:ok, %{public_id: public_id}} = Cloudex.upload(logo.path) 
-        Map.put(company_params, "company_logo", public_id)
+        Map.merge(company_params, %{"company_logo" => public_id, "user_id" => user_id})
     end
 
     case Accounts.create_company(company_params) do
