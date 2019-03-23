@@ -18,6 +18,10 @@ defmodule GohiremeWeb.UserController do
     redirect(conn, to: Routes.company_path(conn, :new))
   end
 
+  defp create_profile(conn, %User{role: "candidate"}) do
+    redirect(conn, to: Routes.candidate_path(conn, :new))
+  end
+
   def create(conn, %{"user" => user_params}) do
     case Accounts.create_user(user_params) do
       {:ok, user} ->

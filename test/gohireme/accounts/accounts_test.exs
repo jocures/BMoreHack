@@ -128,4 +128,75 @@ defmodule Gohireme.AccountsTest do
       assert %Ecto.Changeset{} = Accounts.change_company(company)
     end
   end
+
+  describe "candidates" do
+    alias Gohireme.Accounts.Candidate
+
+    @valid_attrs %{desired_industry: "some desired_industry", desired_job_title: "some desired_job_title", first_name: "some first_name", last_name: "some last_name", location: "some location", salary_max: 42, salary_min: 42}
+    @update_attrs %{desired_industry: "some updated desired_industry", desired_job_title: "some updated desired_job_title", first_name: "some updated first_name", last_name: "some updated last_name", location: "some updated location", salary_max: 43, salary_min: 43}
+    @invalid_attrs %{desired_industry: nil, desired_job_title: nil, first_name: nil, last_name: nil, location: nil, salary_max: nil, salary_min: nil}
+
+    def candidate_fixture(attrs \\ %{}) do
+      {:ok, candidate} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> Accounts.create_candidate()
+
+      candidate
+    end
+
+    test "list_candidates/0 returns all candidates" do
+      candidate = candidate_fixture()
+      assert Accounts.list_candidates() == [candidate]
+    end
+
+    test "get_candidate!/1 returns the candidate with given id" do
+      candidate = candidate_fixture()
+      assert Accounts.get_candidate!(candidate.id) == candidate
+    end
+
+    test "create_candidate/1 with valid data creates a candidate" do
+      assert {:ok, %Candidate{} = candidate} = Accounts.create_candidate(@valid_attrs)
+      assert candidate.desired_industry == "some desired_industry"
+      assert candidate.desired_job_title == "some desired_job_title"
+      assert candidate.first_name == "some first_name"
+      assert candidate.last_name == "some last_name"
+      assert candidate.location == "some location"
+      assert candidate.salary_max == 42
+      assert candidate.salary_min == 42
+    end
+
+    test "create_candidate/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Accounts.create_candidate(@invalid_attrs)
+    end
+
+    test "update_candidate/2 with valid data updates the candidate" do
+      candidate = candidate_fixture()
+      assert {:ok, %Candidate{} = candidate} = Accounts.update_candidate(candidate, @update_attrs)
+      assert candidate.desired_industry == "some updated desired_industry"
+      assert candidate.desired_job_title == "some updated desired_job_title"
+      assert candidate.first_name == "some updated first_name"
+      assert candidate.last_name == "some updated last_name"
+      assert candidate.location == "some updated location"
+      assert candidate.salary_max == 43
+      assert candidate.salary_min == 43
+    end
+
+    test "update_candidate/2 with invalid data returns error changeset" do
+      candidate = candidate_fixture()
+      assert {:error, %Ecto.Changeset{}} = Accounts.update_candidate(candidate, @invalid_attrs)
+      assert candidate == Accounts.get_candidate!(candidate.id)
+    end
+
+    test "delete_candidate/1 deletes the candidate" do
+      candidate = candidate_fixture()
+      assert {:ok, %Candidate{}} = Accounts.delete_candidate(candidate)
+      assert_raise Ecto.NoResultsError, fn -> Accounts.get_candidate!(candidate.id) end
+    end
+
+    test "change_candidate/1 returns a candidate changeset" do
+      candidate = candidate_fixture()
+      assert %Ecto.Changeset{} = Accounts.change_candidate(candidate)
+    end
+  end
 end

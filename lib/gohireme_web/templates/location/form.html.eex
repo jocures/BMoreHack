@@ -1,0 +1,18 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <%= label f, :location, "Where are you right now?" %>
+  <%= text_input f, :location, placeholder: "Baltimore, MD" %>
+  <%= error_tag f, :location %>
+
+  <%= label f, :remote_ok, "And are you okay with a remote position? If yes, check the box." %>
+  <%= checkbox f, :remote_ok %>
+
+  <div>
+    <%= submit "Now smile!" %>
+  </div>
+<% end %>

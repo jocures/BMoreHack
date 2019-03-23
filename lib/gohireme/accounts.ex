@@ -212,4 +212,115 @@ defmodule Gohireme.Accounts do
   def change_company(%Company{} = company) do
     Company.changeset(company, %{})
   end
+
+  alias Gohireme.Accounts.Candidate
+
+  @doc """
+  Returns the list of candidates.
+
+  ## Examples
+
+      iex> list_candidates()
+      [%Candidate{}, ...]
+
+  """
+  def list_candidates do
+    Repo.all(Candidate)
+  end
+
+  @doc """
+  Gets a single candidate.
+
+  Raises `Ecto.NoResultsError` if the Candidate does not exist.
+
+  ## Examples
+
+      iex> get_candidate!(123)
+      %Candidate{}
+
+      iex> get_candidate!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_candidate!(id), do: Repo.get!(Candidate, id)
+
+  @doc """
+  Gets a candidate by their user id.
+
+  ## Examples
+
+      iex> get_candidate_for_user(1)
+      %Candidate{user_id: 1}
+
+      iex> get_candidate_for_user(200)
+      nil
+  """
+  def get_candidate_for_user(user_id) do
+    Repo.get_by(Candidate, user_id: user_id)
+  end
+
+  @doc """
+  Creates a candidate.
+
+  ## Examples
+
+      iex> create_candidate(%{field: value})
+      {:ok, %Candidate{}}
+
+      iex> create_candidate(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_candidate(attrs \\ %{}) do
+    %Candidate{}
+    |> Candidate.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a candidate.
+
+  ## Examples
+
+      iex> update_candidate(candidate, %{field: new_value})
+      {:ok, %Candidate{}}
+
+      iex> update_candidate(candidate, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_candidate(%Candidate{} = candidate, attrs) do
+    candidate
+    |> Candidate.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a Candidate.
+
+  ## Examples
+
+      iex> delete_candidate(candidate)
+      {:ok, %Candidate{}}
+
+      iex> delete_candidate(candidate)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_candidate(%Candidate{} = candidate) do
+    Repo.delete(candidate)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking candidate changes.
+
+  ## Examples
+
+      iex> change_candidate(candidate)
+      %Ecto.Changeset{source: %Candidate{}}
+
+  """
+  def change_candidate(%Candidate{} = candidate) do
+    Candidate.changeset(candidate, %{})
+  end
 end

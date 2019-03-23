@@ -1,0 +1,5 @@
+<h1>What do you want to get paid?</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.salary_path(@conn, :update, @candidate)) %>
+
+<%= link "Back to industry information.", to: Routes.industry_path(@conn, :new) %>
