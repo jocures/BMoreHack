@@ -20,10 +20,7 @@
   <div class="row">
     <h3><%= link "My Raise", to: "/" %></h3>
     <div class="column">
-      <%= form_for @conn, Routes.profile_path(@conn, :edit), [id: "link-select-form"], fn f -> %>
-        <%= select f, :link_type, ["Private": "private", "Public": "public"] %>
-      <% end %>
-      <a href="/">&lt;private link placeholder&gt;</a>
+      <%= link "Public link", to: Routes.raise_path(@conn, :show, @candidate.slug) %>
     </div>
   </div>
   <div class="row">
@@ -67,11 +64,11 @@
     <div class="column">
       <%= form_for @changeset, Routes.candidate_profile_path(@conn, :update), fn f -> %>
         <%= label f, :pitch_video_url %>
-        <%= render_video_embed(@conn, @candidate.pitch_video_url) %>
+        <%= render_video_embed(@candidate.pitch_video_url) %>
         <%= url_input f, :pitch_video_url %>
 
         <%= label f, :hire_video_url %>
-        <%= render_video_embed(@conn, @candidate.hire_video_url) %>
+        <%= render_video_embed(@candidate.hire_video_url) %>
         <%= url_input f, :hire_video_url %>
 
         <div>

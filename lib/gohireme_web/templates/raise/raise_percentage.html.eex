@@ -1,0 +1,5 @@
+<div class="raise_percentage">
+  <div style="width: <%= @percentage %>%" class="complete">
+    <span class="percent_text"><%= @percentage %>%</span>
+  </div>
+</div>
