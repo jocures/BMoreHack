@@ -15,11 +15,11 @@
   <%= error_tag f, :story %>
 
   <%= label f, :linked_in_url, "Do you have a LinkedIn profile?" %>
-  <%= url_input f, :linked_in_url %>
+  <%= url_input f, :linked_in_url, placeholder: "https://linked.com/me" %>
   <%= error_tag f, :linked_in_url %>
 
-  <%= label f, :personal_website, "And do you have a personal website?" %>
-  <%= url_input f, :personal_website %>
+  <%= label f, :personal_website, "If you have a personal website, add the link here." %>
+  <%= url_input f, :personal_website, placeholder: "https://mywebsite.com" %>
   <%= error_tag f, :personal_website %>
 
   <div>

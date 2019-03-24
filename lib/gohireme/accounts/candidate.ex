@@ -40,6 +40,6 @@ defmodule Gohireme.Accounts.Candidate do
     |> validate_number(:desired_raise, greater_than: 0, less_than: :salary_min, message: "Can't negative or more than annual salary.")
     |> validate_format(:linked_in_url, ~r/linkedin\.com/)
     |> validate_length(:pitch, max: 140)
-    |> validate_format(:pitch_video_url, ~r/youtube\.com|vimeo\.com/, message: "Please put a link from YouTube or Vimeo.")
+    |> validate_format(:pitch_video_url, ~r/youtube\.com|youtu\.be|vimeo\.com/, message: "Please put a link from YouTube or Vimeo (full or shortened links work.")
   end
 end

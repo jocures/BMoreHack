@@ -18,6 +18,14 @@ defmodule GohiremeWeb.RaiseView do
             embed_url = "https://youtube.com/embed/#{video_id}"
             render(GohiremeWeb.CandidateProfileView, "youtube_embed.html", embed_url: embed_url) 
         end
+      Regex.match?(~r/youtu\.be/, url) ->
+        case Regex.run(~r/youtu\.be\/([\d\w]+)/, url) do
+          nil -> nil
+          matches ->
+            video_id = List.last(matches)
+            embed_url = "https://youtube.com/embed/#{video_id}"
+            render(GohiremeWeb.CandidateProfileView, "youtube_embed.html", embed_url: embed_url) 
+        end
       Regex.match?(~r/vimeo\.com/, url) -> 
         case Regex.run(~r/vimeo\.com\/([\d\w]+)/, url) do
           nil -> nil
