@@ -1,0 +1,83 @@
+<section class="profile">
+  <div class="row">
+    <%= form_for @changeset, Routes.candidate_profile_path(@conn, :update), [multipart: true], fn f -> %>
+      <div class="column">
+        <%= label f, :profile_image, "Profile Image" %>
+        <%= render_profile_image(@candidate.profile_image) %>
+        <%= file_input f, :profile_image %>
+      </div>
+      <div class="column">
+        <%= label f, :name %>
+        <%= text_input f, :first_name %>
+        <%= text_input f, :last_name %>
+      </div>
+      <div>
+        <%= submit "Save" %>
+      </div>
+    <% end %>
+  </div>
+  <hr>
+  <div class="row">
+    <h3><%= link "My Raise", to: "/" %></h3>
+    <div class="column">
+      <%= form_for @conn, Routes.profile_path(@conn, :edit), [id: "link-select-form"], fn f -> %>
+        <%= select f, :link_type, ["Private": "private", "Public": "public"] %>
+      <% end %>
+      <a href="/">&lt;private link placeholder&gt;</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column">
+      <%= form_for @changeset, Routes.profile_path(@conn, :edit), fn f -> %>
+        <%= label f, :desired_industry, "Industry" %>
+        <%= select f, :desired_industry, ["Technology": "technology", "Management": "management", "Finance": "finance"] %>
+
+        <%= label f, :desired_job_title, "Job Title" %>
+        <%= text_input f, :desired_job_title, placeholder: "Ex. Python Developer" %>
+
+        <%= label f, :salary_range, "Salary Range" %>
+        <%= number_input f, :salary_min, placeholder: "$50,000" %>
+        <%= number_input f, :salary_max, placeholdere: "$75,000" %>
+
+        <div>
+          <%= submit "Save" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <%= form_for @changeset, Routes.candidate_profile_path(@conn, :update), fn f -> %>
+        <%= label f, :pitch, "Your Pitch" %>
+        <%= textarea f, :pitch, max_length: 140 %>
+        <div>Remaining characters: <span id="pitch_counter"><%= 140 - pitch_length(@candidate.pitch) %></span></div>
+
+        <%= label f, :story, "Your Story" %>
+        <%= textarea f, :story %>
+
+        <div>
+          <%= submit "Save" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <%= form_for @changeset, Routes.candidate_profile_path(@conn, :update), fn f -> %>
+        <%= label f, :pitch_video_url %>
+        <%= render_video_embed(@conn, @candidate.pitch_video_url) %>
+        <%= url_input f, :pitch_video_url %>
+
+        <%= label f, :hire_video_url %>
+        <%= render_video_embed(@conn, @candidate.hire_video_url) %>
+        <%= url_input f, :hire_video_url %>
+
+        <div>
+          <%= submit "Save" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
