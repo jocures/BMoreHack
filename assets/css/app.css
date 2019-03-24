@@ -42,3 +42,7 @@ header section.container {
 iframe {
   margin: 1rem;
 }
+
+main {
+  min-height: 60vh;
+}

@@ -1,8 +1,10 @@
-<section class="phx-hero">
-  <h1>Find your Dream Job</h1>
-  <p>Leveled helps people leverage their personal network to grow in their careers. Access zero interest financing to find your next career.</p>
-  <%= link "Sign up", to: Routes.user_path(@conn, :new), class: "button"%>
-  <a class="button-outline" href="#leveled-hiring">Hire on Leveled</a>
+<section class="jumbotron jumbotron-fluid">
+<div class="container">
+  <h1 class="display-4">Find your Dream Job</h1>
+  <p class="lead">Leveled helps people leverage their personal network to grow in their careers. Access zero interest financing to find your next career.</p>
+  <%= link "Sign up", to: Routes.user_path(@conn, :new), class: "btn btn-primary btn-lg"%>
+  <a class="btn btn-outline-primary btn-lg" href="#leveled-hiring">Hire on Leveled</a>
+  </div>
 </section>
 <section>
   <div>
