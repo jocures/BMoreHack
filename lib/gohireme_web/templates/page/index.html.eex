@@ -95,7 +95,7 @@
                 <div class="container">
                   <div class="row">
                     <div class="column column-50">
-                      <%= link "Signup", to: Routes.user_controller(@conn, :new) %>
+                      <%= link "Signup", to: Routes.user_path(@conn, :new) %>
                       <a class="button">Signup</a>
                     </div>
                     <div class=" column column-50">
