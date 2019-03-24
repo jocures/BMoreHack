@@ -1,12 +1,12 @@
-<section class="">
-<div class="container">
-  <h1 class="">Find your Dream Job</h1>
+<section class="phx-hero">
+<div>
+  <h1 class=>Find your Dream Job</h1>
   <p class="lead">Leveled helps people leverage their personal network to grow in their careers. Access zero interest financing to find your next career.</p>
   <%= link "Sign up", to: Routes.user_path(@conn, :new), class: "button"%>
   <a class="btn btn-outline-primary btn-lg" href="#leveled-hiring">Hire on Leveled</a>
   </div>
 </section>
-<section>
+<section class="lvl-section">
   <div>
     <h1>What is Leveled?</h1>
   </div>
