@@ -31,6 +31,6 @@
   </div>
   <div class="row">
     <%= link "Donate", to: Routes.donate_path(@conn, :new, @candidate.slug), class: "button" %>
-    <%= link "Share", to: "/", class: "button button-outline" %>
+    <%= link "Share", to: Routes.donate_path(@conn, :show, @candidate.slug), class: "button button-outline" %>
   </div>
 </section>
