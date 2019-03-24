@@ -38,7 +38,7 @@ defmodule GohiremeWeb.Router do
     get "/donate/:slug", RaiseController, :show
     get "/donate/:slug/new", DonateController, :new
     post "/donate/:slug", DonateController, :create
-    get "/checkout/:slug", CheckoutController, :new
+    get "/thanks/:slug", DonateController, :show
     
   end
 

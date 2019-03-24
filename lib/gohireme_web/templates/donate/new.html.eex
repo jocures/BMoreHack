@@ -11,7 +11,16 @@
   </div>
 </div>
 <div class="row">
-  <%= form_for @conn, Routes.checkout_path(@conn, :new, @candidate.slug), [method: :get], fn f -> %>
+  <%= form_for @conn, Routes.donate_path(@conn, :create, @candidate.slug), fn f -> %>
+    <%= label f, :first_name, "First Name" %>
+    <%= text_input f, :first_name, placeholder: "Jane" %>
+
+    <%= label f, :last_name, "Last Name" %>
+    <%= text_input f, :last_name, placeholder: "Doe" %>
+
+    <%= label f, :email, "Email Address" %>
+    <%= email_input f, :email, placeholder: "hello@example.com" %>
+
     <%= label f, :amount, "How much would you like to donate?" %>
     <%= number_input f, :amount, placeholder: "$100" %>
 
