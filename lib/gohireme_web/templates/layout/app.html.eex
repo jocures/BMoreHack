@@ -13,7 +13,7 @@
         <nav role="navigation">
           <%= render_navigation @conn %>
         </nav>
-        <h1>Leveled</h1>
+        <div class="lvl-logo"><%= img_tag Routes.static_path(@conn, "/images/leveledlogo.png") %></div>
       </section>
     </header>
     <main role="main" class="container">
