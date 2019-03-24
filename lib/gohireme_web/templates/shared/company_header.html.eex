@@ -1,6 +1,6 @@
-<ul>
-  <li><%= link "My Account", to: Routes.profile_path(@conn, :edit) %></li>
-  <li><%= link "My Roles", to: "/" %></li>
-  <li><%= link "Find Candidates", to: "/" %></li>
-  <li><%= link "Logout", to: Routes.user_session_path(@conn, :delete), method: :delete %></li>
-</ul>
+<div class="row">
+  <div><%= link "My Account", to: Routes.profile_path(@conn, :edit), class: "button" %></div>
+  <div><%= link "My Roles", to: "/", class: "button" %></div>
+  <div><%= link "Find Candidates", to: "/", class: "button" %></div>
+  <div><%= link "Logout", to: Routes.user_session_path(@conn, :delete), method: :delete, class: "button" %></div>
+<div>
