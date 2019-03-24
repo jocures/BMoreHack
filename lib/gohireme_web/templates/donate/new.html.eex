@@ -1,0 +1,31 @@
+<div class="row">
+  <%= link "Back to their campaign", to: Routes.raise_path(@conn, :show, @candidate.slug) %>
+  <%= render_profile_image(@candidate.profile_image) %>
+</div>
+<div class="row">
+  <div class="column">
+    <%= render_motivation_text(@candidate, @total_donations) %>
+  </div>
+  <div class="column">
+    <%= render_raise_percentage(@candidate, @total_donations) %>
+  </div>
+</div>
+<div class="row">
+  <%= form_for @conn, Routes.donate_path(@conn, :create, @candidate.slug), fn f -> %>
+    <%= label f, :first_name, "First Name" %>
+    <%= text_input f, :first_name, placeholder: "Jane" %>
+
+    <%= label f, :last_name, "Last Name" %>
+    <%= text_input f, :last_name, placeholder: "Doe" %>
+
+    <%= label f, :email, "Email Address" %>
+    <%= email_input f, :email, placeholder: "hello@example.com" %>
+
+    <%= label f, :amount, "How much would you like to donate?" %>
+    <%= number_input f, :amount, placeholder: "$100" %>
+
+    <div>
+      <%= submit "Donate" %>
+    </div>
+  <% end %>
+</div>

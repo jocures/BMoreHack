@@ -36,6 +36,11 @@ defmodule GohiremeWeb.Router do
     resources "/hireme", HireVideoController, only: [:new, :create, :update]
     get "/profile", ProfileController, :edit
     put "/candidate_profile", CandidateProfileController, :update
+    get "/donate/:slug", RaiseController, :show
+    get "/donate/:slug/new", DonateController, :new
+    post "/donate/:slug", DonateController, :create
+    get "/thanks/:slug", DonateController, :show
+    
   end
 
   # Other scopes may use custom stacks.
