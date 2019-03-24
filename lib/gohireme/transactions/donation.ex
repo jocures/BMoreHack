@@ -8,7 +8,7 @@ defmodule Gohireme.Transactions.Donation do
   schema "donations" do
     field :amount, :integer
     belongs_to :donor, Donor
-    belongs_to: :candidate, Candidate
+    belongs_to :candidate, Candidate
 
     timestamps()
   end

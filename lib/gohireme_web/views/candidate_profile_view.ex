@@ -10,7 +10,8 @@ defmodule GohiremeWeb.CandidateProfileView do
   def pitch_length(nil), do: 0
   def pitch_length(pitch), do: String.length(pitch)
 
-  def render_video_embed(conn, url) do
+  def render_video_embed(nil), do: nil
+  def render_video_embed(url) do
     cond do
       Regex.match?(~r/youtube\.com/, url) ->
         case Regex.run(~r/v=([\w\d]+)/, url) do

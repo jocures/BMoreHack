@@ -288,6 +288,10 @@ defmodule Gohireme.Accounts do
     Repo.get_by(Candidate, user_id: user_id)
   end
 
+  def get_candidate_by_slug(slug) do
+    Repo.get_by(Candidate, slug: slug)
+  end
+
   @doc """
   Creates a candidate.
 
@@ -300,9 +304,18 @@ defmodule Gohireme.Accounts do
       {:error, %Ecto.Changeset{}}
 
   """
+
+  defp random_hash() do
+    :crypto.strong_rand_bytes(16)
+    |> Base.encode16()
+    |> String.slice(0, 8)
+    |> String.downcase()
+  end
+
   def create_candidate(attrs \\ %{}) do
+    slug = "#{attrs["first_name"]}-#{attrs["last_name"]}-#{random_hash()}"
     %Candidate{}
-    |> Candidate.changeset(attrs)
+    |> Candidate.changeset(Map.put(attrs, "slug", slug))
     |> Repo.insert()
   end
 

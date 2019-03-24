@@ -68,6 +68,12 @@ defmodule Gohireme.Transactions do
     Repo.all(Donation)
   end
 
+  def list_donations_for_candidate(candidate_id) do
+    query = from d in Donation,
+      where: d.candidate_id == ^candidate_id
+    Repo.all(query)
+  end
+
   @doc """
   Gets a single donation.
 
