@@ -46,3 +46,8 @@ iframe {
 main {
   min-height: 60vh;
 }
+
+.profile-image {
+  width: 10rem;
+  height: 10rem;
+}

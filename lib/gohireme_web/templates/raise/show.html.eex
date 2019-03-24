@@ -22,6 +22,8 @@
       <h3><%= @candidate.first_name %>'s Pitch</h3>
       <%= render_video_embed(@candidate.pitch_video_url) %>
     </div>
+  </div>
+  <div class="row">
     <div class="column">
       <h3><%= @candidate.first_name %>'s Story</h3>
       <%= render_story(@candidate.story) %>

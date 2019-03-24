@@ -4,7 +4,7 @@ defmodule GohiremeWeb.RaiseView do
   def render_profile_image(nil), do: nil
   def render_profile_image(id) do
     src = Cloudex.Url.for(id)
-    img_tag(src, alt: "Candidate Profile Image")
+    img_tag(src, alt: "Candidate Profile Image", class: "profile-image")
   end
 
   def render_video_embed(nil), do: nil
