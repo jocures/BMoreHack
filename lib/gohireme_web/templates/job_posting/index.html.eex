@@ -1,0 +1,8 @@
+<h1>Listing Job Postings</h1>
+
+<%= for job <- @jobs do %>
+    <div>
+      <td><%= job.company.company_name %></td>
+      <td><%= job.deadline %></td>
+    </div>
+<% end %>

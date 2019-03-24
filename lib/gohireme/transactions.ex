@@ -19,7 +19,9 @@ defmodule Gohireme.Transactions do
 
   """
   def list_job_postings do
-    Repo.all(JobPosting)
+    JobPosting
+   |> Repo.all()
+   |> Repo.preload(:company)
   end
 
   @doc """
