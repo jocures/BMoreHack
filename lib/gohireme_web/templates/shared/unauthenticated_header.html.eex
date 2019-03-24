@@ -1,4 +1,8 @@
-<div class="row">
-  <div class="column"><%= link "Login", to: Routes.user_session_path(@conn, :new), class: "button"%></div>
-  <div class="column"><%= link "Sign up", to: Routes.user_path(@conn, :new), class: "button"%></div>
-</div>
+  <ul class="nav nav-pills justify-content-end">
+    <li class="nav-item">
+    <%= link "Sign up", to: Routes.user_path(@conn, :new), class: "nav-link active"%>
+    </li>
+    <li class="nav-item">
+    <%= link "Login", to: Routes.user_session_path(@conn, :new), class: "nav-link"%>
+    </li>
+  </ul>
