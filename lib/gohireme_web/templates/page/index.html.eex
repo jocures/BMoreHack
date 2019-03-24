@@ -101,25 +101,3 @@
                   </div>
                 </div>
               </section>
-
-              <footer>
-                <section>
-                  <div class="container">
-                    <div class="row">
-                      <div class="column column-50">
-                        <p>Leveled is the only crowdfunding platform that moves people into their next career. Connect with great companies for month-long experiences funded by the crowd.</p>
-                      </div>
-                      <div class="column column-50">
-                        <dl>
-                          <dt>10 E North Ave Suite 5 Baltimore MD 21202</dt>
-                          <dt>Email: hello@leveled.app </dt>
-                          <dt>Phone: 4437044635</dt>
-                        </dl>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <a href="http://madewithloveinbaltimore.org">Made with &hearts; in Baltimore</a>
-                  </div>
-                </section>
-              </footer>
