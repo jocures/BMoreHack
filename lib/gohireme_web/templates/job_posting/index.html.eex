@@ -1,0 +1,14 @@
+<h1>Job Postings</h1>
+
+<%= for job <- @jobs do %>
+  <div class="row" style="padding: 10px; padding-top: 20px; border-top: 2px solid black">
+    <div class="column column-80">
+      <h4><%= job.company.company_name %></h4>
+      <h5><%= job.title %></h5>
+    </div>
+    <div class="column column-20">
+      <button>View</button>
+      <button>Apply</button>
+    </div>
+  </div>
+<% end %>

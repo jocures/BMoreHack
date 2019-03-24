@@ -2,7 +2,7 @@ defmodule Gohireme.Transactions.JobPosting do
   use Ecto.Schema
   import Ecto.Changeset
 
-  alias Gohireme.Accounts.User
+  alias Gohireme.Accounts.Company
 
   schema "job_postings" do
     field :title, :string

@@ -1,4 +1,4 @@
-defmodule GohiremeWeb.CandidateProfileView do
+defmodule GohiremeWeb.RaiseView do
   use GohiremeWeb, :view
 
   def render_profile_image(nil), do: nil
@@ -6,9 +6,6 @@ defmodule GohiremeWeb.CandidateProfileView do
     src = Cloudex.Url.for(id)
     img_tag(src, alt: "Candidate Profile Image")
   end
-
-  def pitch_length(nil), do: 0
-  def pitch_length(pitch), do: String.length(pitch)
 
   def render_video_embed(nil), do: nil
   def render_video_embed(url) do
@@ -31,5 +28,16 @@ defmodule GohiremeWeb.CandidateProfileView do
         end
       true -> nil
     end
+  end
+
+  def render_raise_percentage(candidate, total_donations) do
+    percentage = total_donations / (candidate.desired_raise * 10)
+    render(GohiremeWeb.RaiseView, "raise_percentage.html", percentage: percentage)
+  end
+
+  def render_story(nil), do: content_tag(:p, "Looks like they haven't written anything yet...")
+  def render_story(story) do
+    paragraphs = String.split(story, "\n")
+    Enum.map(paragraphs, fn p -> content_tag(:p, p) end)
   end
 end

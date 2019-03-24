@@ -1,0 +1,43 @@
+<h1>Show Candidate</h1>
+
+<ul>
+
+  <li>
+    <strong>First name:</strong>
+    <%= @candidate.first_name %>
+  </li>
+
+  <li>
+    <strong>Last name:</strong>
+    <%= @candidate.last_name %>
+  </li>
+
+  <li>
+    <strong>Salary min:</strong>
+    <%= @candidate.salary_min %>
+  </li>
+
+  <li>
+    <strong>Salary max:</strong>
+    <%= @candidate.salary_max %>
+  </li>
+
+  <li>
+    <strong>Location:</strong>
+    <%= @candidate.location %>
+  </li>
+
+  <li>
+    <strong>Desired job title:</strong>
+    <%= @candidate.desired_job_title %>
+  </li>
+
+  <li>
+    <strong>Desired industry:</strong>
+    <%= @candidate.desired_industry %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.candidate_path(@conn, :edit, @candidate) %></span>
+<span><%= link "Back", to: Routes.candidate_path(@conn, :index) %></span>

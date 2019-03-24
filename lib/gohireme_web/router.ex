@@ -25,6 +25,7 @@ defmodule GohiremeWeb.Router do
     resources "/company_secondary_details", CompanySecondaryDetailsController, only: [:new, :create, :update]
     resources "/company_point_of_contact", CompanyPointOfContactController, only: [:new, :create, :update]
     resources "/company_job_posting", CompanyJobPostingController, only: [:new, :create, :update]
+    resources "/job_posting", JobPostingController
     resources "/candidate", CandidateController
     resources "/industry", IndustryController, only: [:new, :create, :update]
     resources "/salary", SalaryController, only: [:new, :create, :update]
@@ -35,6 +36,11 @@ defmodule GohiremeWeb.Router do
     resources "/hireme", HireVideoController, only: [:new, :create, :update]
     get "/profile", ProfileController, :edit
     put "/candidate_profile", CandidateProfileController, :update
+    get "/donate/:slug", RaiseController, :show
+    get "/donate/:slug/new", DonateController, :new
+    post "/donate/:slug", DonateController, :create
+    get "/thanks/:slug", DonateController, :show
+    
   end
 
   # Other scopes may use custom stacks.
