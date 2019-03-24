@@ -309,11 +309,12 @@ defmodule Gohireme.Accounts do
     :crypto.strong_rand_bytes(16)
     |> Base.encode16()
     |> String.slice(0, 8)
-    |> String.downcase()
   end
 
   def create_candidate(attrs \\ %{}) do
-    slug = "#{attrs["first_name"]}-#{attrs["last_name"]}-#{random_hash()}"
+    slug = 
+      "#{attrs["first_name"]}-#{attrs["last_name"]}-#{random_hash()}"
+      |> String.downcase()
     %Candidate{}
     |> Candidate.changeset(Map.put(attrs, "slug", slug))
     |> Repo.insert()

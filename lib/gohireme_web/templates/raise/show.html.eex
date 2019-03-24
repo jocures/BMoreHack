@@ -14,7 +14,7 @@
   </div>
   <br>
   <div class="row">
-    <%= link "Donate", to: "/", class: "button" %>
+    <%= link "Donate", to: Routes.donate_path(@conn, :new, @candidate.slug), class: "button" %>
   </div>
   <hr>
   <div class="row">
@@ -28,7 +28,7 @@
     </div>
   </div>
   <div class="row">
-    <%= link "Donate", to: "/", class: "button" %>
+    <%= link "Donate", to: Routes.donate_path(@conn, :new, @candidate.slug), class: "button" %>
     <%= link "Share", to: "/", class: "button button-outline" %>
   </div>
 </section>

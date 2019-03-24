@@ -35,6 +35,10 @@ defmodule GohiremeWeb.Router do
     get "/profile", ProfileController, :edit
     put "/candidate_profile", CandidateProfileController, :update
     get "/donate/:slug", RaiseController, :show
+    get "/donate/:slug/new", DonateController, :new
+    post "/donate/:slug", DonateController, :create
+    get "/checkout/:slug", CheckoutController, :new
+    
   end
 
   # Other scopes may use custom stacks.
