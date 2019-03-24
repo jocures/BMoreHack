@@ -20,6 +20,7 @@ defmodule GohiremeWeb.Router do
     resources "/signup", UserController
     resources "/login", UserSessionController, only: [:new, :create]
     delete "/logout", UserSessionController, :delete
+    get "/policies", PageController, :policies
     resources "/company", CompanyController
     resources "/company_secondary_details", CompanySecondaryDetailsController, only: [:new, :create, :update]
     resources "/company_point_of_contact", CompanyPointOfContactController, only: [:new, :create, :update]
