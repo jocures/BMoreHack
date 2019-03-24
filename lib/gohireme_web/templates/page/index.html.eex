@@ -1,35 +1,125 @@
 <section class="phx-hero">
-  <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
-  <p>A productive web framework that<br/>does not compromise speed and maintainability.</p>
+  <h1>Find your Dream Job</h1>
+  <p>Leveled helps people leverage their personal network to grow in their careers. Access zero interest financing to find your next career.</p>
+  <%= link "Sign up", to: Routes.user_path(@conn, :new), class: "button"%>
+  <a class="button-outline" href="#leveled-hiring">Hire on Leveled</a>
 </section>
+<section>
+  <div>
+    <h1>Leveled Careers</h1>
+  </div>
+  <div>
+    <h3> We can’t all start at the same level. Many of us For many of us, unpaid internships are just out of reach.<h3>
+      </div>
+    </section>
+    <div>
+      <p>We are the only crowdfunding platform that moves people into thier next career. On leveled people leverage the power of thier network to help them afford to take big bets on themselves. Levelers raise money from thier friends and family so they can take month-long unpaid Leveled Experience with great companies. Companies get a feel for each person and pay back the crowd when they make a hire.</p>
+    </div>
+  </section>
 
-<section class="row">
-  <article class="column">
-    <h2>Resources</h2>
-    <ul>
-      <li>
-        <a href="https://hexdocs.pm/phoenix/overview.html">Guides &amp; Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix/blob/v1.4/CHANGELOG.md">v1.4 Changelog</a>
-      </li>
-    </ul>
-  </article>
-  <article class="column">
-    <h2>Help</h2>
-    <ul>
-      <li>
-        <a href="https://elixirforum.com/c/phoenix-forum">Forum</a>
-      </li>
-      <li>
-        <a href="https://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on Freenode IRC</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">Twitter @elixirphoenix</a>
-      </li>
-    </ul>
-  </article>
-</section>
+  <section>
+    <div>
+      <h1>How it Works</h1>
+    </div>
+    <div>
+      <h2>Create a profile.</h2>
+      <p>Tell us a bit about who you are and your goals. Pick how much you want to raise and upload a video for your friends. Showcase your talent to employers with some video flare, and let us do the rest.</p>
+    </div>
+    <div>
+      <h2>Share your Raise with your community.</h2>
+      <p>We know you might be looking for more, your Raise Page can be public or private.</p>
+    </div>
+    <div>
+      <h2>Find great roles or bring your own.</h2>
+      <p>When you are almost funded, leveled takes a 5% fee and gets you in front of great companies looking for talent, or you can bring your own. Singing up a company is fast and simple.<p>
+        </div>
+        <div>
+          <h2>Get a great Leveled Experience</h2>
+          <p>Our month-long experiences are the perfect way for you to find your next role. When a company brings you onboard for an experience Leveled releases your raise funds. So you can focus on what matters.</p>
+        </div>
+        <div>
+          <h2>Get feedback along the way.</h2>
+          <p>Companies give you weekly reviews so you know how you are doing.</p>
+        </div>
+        <div>
+          <h2>When you yet the job they pay the crowd!</h2>
+          <p>We know you work hard. If a company makes you an offer they payback the crowd!</p>
+          <div>
+          </section>
+          <section id="leveled-hiring">
+            <div>
+              <h1>Leveled Hiring</h1>
+            </div>
+            <div>
+              <p>Leveled believes in the power of the network! On Leveled, you have access to talented people ready for a change! Companies join leveled to find thier next super-star candidate and bring them on for a month-long experience funded by the crowd. This lets the candidate and the company get a good feel for each other before they take the plunge! Join Leveled today and find the perfect match.</p>
+            </div>
+          </section>
+
+          <section>
+            <div>
+              <h1>How it works</h1>
+            </div>
+            <div>
+              <h2>Create an account.</h2>
+              <p>Signup is fast a simple!</p>
+            </div>
+            <div>
+              <h2>Post a job for free.</h2>
+              <p>Link to your existing job board. We will notify you when a leveled candidate applies.</p>
+            </div>
+            <div>
+              <h2>Find the perfect candidate</h2>
+              <p>View candidate pitches and people that are fully funded and ready to work.<p>
+                </div>
+                <div>
+                  <h2>Bring them onboard for a month-long experience</h2>
+                  <p>Leveled experiences all are one-month long trails. You pay a small down payment to the platform and the rest is handled by the crowd.</p>
+                </div>
+                <div>
+                  <h2>Review as you go</h2>
+                  <p>Give feedback at the end of each week so everyone is on the same page. Let the leveler's community know how they are doing!</p>
+                </div>
+                <div>
+                  <h2>Zero Risk</h2>
+                  <p>If it doesn't work out just let Leveled know. You’re not obligated to pay unless you make an offer.</p>
+                </div>
+                <div>
+                  <h2>Hire them on!</h2>
+                  <p>If it is a good fit, bring-em on full time! You pay back the crowd and everyone wins!</p>
+                </div>
+              </section>
+
+              <section>
+                <div class="container">
+                  <div class="row">
+                    <div class="column column-50">
+                      <a class="button">Signup</a>
+                    </div>
+                    <div class=" column column-50">
+                      <a class="button">Find Talent</a>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <footer>
+                <section>
+                  <div class="container">
+                    <div class="row">
+                      <div class="column column-50">
+                        <p>Leveled is the only crowdfunding platform that moves people into their next career. Connect with great companies for month-long experiences funded by the crowd.</p>
+                      </div>
+                      <div class="column column-50">
+                        <dl>
+                          <dt>10 E North Ave Suite 5 Baltimore MD 21202</dt>
+                          <dt>Email: hello@leveled.app </dt>
+                          <dt>Phone: 4437044635</dt>
+                        </dl>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <a href="http://madewithloveinbaltimore.org">Made with &hearts; in Baltimore</a>
+                  </div>
+                </section>
+              </footer>
