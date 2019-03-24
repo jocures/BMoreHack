@@ -65,7 +65,7 @@ select {
 .phx-hero {
   text-align: center;
   border-bottom: 1px solid #e3e3e3;
-  background: #eee;
+  background: #30e3ca;
   border-radius: 6px;
   padding: 3em;
   margin-bottom: 3rem;
@@ -131,4 +131,9 @@ header nav a {
     flex-basis: 527px;
     margin: 2rem 1rem;
   }
+}
+
+.lvl-logo{
+width: 5rem;
+height: 5rem;
 }
