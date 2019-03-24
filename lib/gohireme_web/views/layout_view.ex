@@ -8,8 +8,8 @@ defmodule GohiremeWeb.LayoutView do
   def render_navigation(conn) do
     user_id = Plug.Conn.get_session(conn, :current_user_id)
     case Accounts.get_user_type(user_id) do
-      %Candidate{} -> 
-        render GohiremeWeb.SharedView, "candidate_header.html", conn: conn
+      %Candidate{} = candidate -> 
+        render GohiremeWeb.SharedView, "candidate_header.html", conn: conn, candidate: candidate
       %Company{} ->
         render GohiremeWeb.SharedView, "company_header.html", conn: conn
       _ ->

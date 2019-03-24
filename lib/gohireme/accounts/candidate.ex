@@ -24,6 +24,8 @@ defmodule Gohireme.Accounts.Candidate do
     field :pitch_video_url, :string
     field :hire_video_url, :string
 
+    field :slug, :string
+
     belongs_to :user, User
 
     timestamps()
@@ -32,12 +34,12 @@ defmodule Gohireme.Accounts.Candidate do
   @doc false
   def changeset(candidate, attrs) do
     candidate
-    |> cast(attrs, [:user_id, :first_name, :last_name, :salary_min, :salary_max, :location, :desired_job_title, :desired_industry, :desired_raise, :remote_ok, :profile_image, :pitch, :story, :linked_in_url, :personal_website, :pitch_video_url, :hire_video_url])
+    |> cast(attrs, [:user_id, :first_name, :last_name, :salary_min, :salary_max, :location, :desired_job_title, :desired_industry, :desired_raise, :remote_ok, :profile_image, :pitch, :story, :linked_in_url, :personal_website, :pitch_video_url, :hire_video_url, :slug])
     |> validate_required([:first_name, :last_name])
     |> validate_number(:salary_min, greater_than: 0, less_than: :salary_max, message: "Can't be negative or more than max salary.")
     |> validate_number(:desired_raise, greater_than: 0, less_than: :salary_min, message: "Can't negative or more than annual salary.")
     |> validate_format(:linked_in_url, ~r/linkedin\.com/)
     |> validate_length(:pitch, max: 140)
-    |> validate_format(:pitch_video_url, ~r/youtube\.com|vimeo\.com/, message: "Please put a link from YouTube or Vimeo.")
+    |> validate_format(:pitch_video_url, ~r/youtube\.com|youtu\.be|vimeo\.com/, message: "Please put a link from YouTube or Vimeo (full or shortened links work.")
   end
 end

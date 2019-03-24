@@ -6,15 +6,15 @@
   <% end %>
 
   <%= label f, :salary_min, "What's the least you would take?" %>
-  <%= number_input f, :salary_min, placeholder: "$50,000" %>
+  <%= number_input f, :salary_min, placeholder: "50000" %>
   <%= error_tag f, :salary_min %>
 
   <%= label f, :salary_max, "What's the most you'd ask for?" %>
-  <%= number_input f, :salary_max, placeholder: "$75,000" %>
+  <%= number_input f, :salary_max, placeholder: "75000" %>
   <%= error_tag f, :salary_max %>
 
   <%= label f, :desired_raise, "And how much do you want to raise?" %>
-  <%= number_input f, :desired_raise, placeholder: "$5000?" %>
+  <%= number_input f, :desired_raise, placeholder: "5000" %>
   <%= error_tag f, :desired_raise %>
 
   <div>

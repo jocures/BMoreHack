@@ -1,6 +1,6 @@
 <div class="row">
   <div><%= link "My Account", to: Routes.profile_path(@conn, :edit), class: "button" %></li>
-  <div><%= link "Job Board", to: "/" , class: "button" %></div>
-  <div><%= link "My Raise", to: "/", class: "button"  %></div>
+  <div><%= link "Job Board", to: Routes.job_posting_path(@conn, :index), class: "button" %></div>
+  <div><%= link "My Raise", to: Routes.raise_path(@conn, :show, @candidate.slug), class: "button"  %></div>
   <div><%= link "Logout", to: Routes.user_session_path(@conn, :delete), method: :delete, class: "button" %></div>
 </div>

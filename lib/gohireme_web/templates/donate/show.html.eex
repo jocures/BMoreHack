@@ -1,0 +1,7 @@
+<div class="container">
+  <h1>Thanks for your donation!</h1>
+  <p>You're basically the coolest for helping <%= @candidate.first_name %> reach their goal!</p>
+
+  <%= link "Back to the campaign", to: Routes.raise_path(@conn, :show, @candidate.slug) %>
+  <%= link "Back to the home page", to: Routes.page_path(@conn, :index) %>
+</div>

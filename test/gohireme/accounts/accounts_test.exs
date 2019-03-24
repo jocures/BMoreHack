@@ -199,4 +199,65 @@ defmodule Gohireme.AccountsTest do
       assert %Ecto.Changeset{} = Accounts.change_candidate(candidate)
     end
   end
+
+  describe "donors" do
+    alias Gohireme.Accounts.Donor
+
+    @valid_attrs %{first_name: "some first_name", last_name: "some last_name"}
+    @update_attrs %{first_name: "some updated first_name", last_name: "some updated last_name"}
+    @invalid_attrs %{first_name: nil, last_name: nil}
+
+    def donor_fixture(attrs \\ %{}) do
+      {:ok, donor} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> Accounts.create_donor()
+
+      donor
+    end
+
+    test "list_donors/0 returns all donors" do
+      donor = donor_fixture()
+      assert Accounts.list_donors() == [donor]
+    end
+
+    test "get_donor!/1 returns the donor with given id" do
+      donor = donor_fixture()
+      assert Accounts.get_donor!(donor.id) == donor
+    end
+
+    test "create_donor/1 with valid data creates a donor" do
+      assert {:ok, %Donor{} = donor} = Accounts.create_donor(@valid_attrs)
+      assert donor.first_name == "some first_name"
+      assert donor.last_name == "some last_name"
+    end
+
+    test "create_donor/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Accounts.create_donor(@invalid_attrs)
+    end
+
+    test "update_donor/2 with valid data updates the donor" do
+      donor = donor_fixture()
+      assert {:ok, %Donor{} = donor} = Accounts.update_donor(donor, @update_attrs)
+      assert donor.first_name == "some updated first_name"
+      assert donor.last_name == "some updated last_name"
+    end
+
+    test "update_donor/2 with invalid data returns error changeset" do
+      donor = donor_fixture()
+      assert {:error, %Ecto.Changeset{}} = Accounts.update_donor(donor, @invalid_attrs)
+      assert donor == Accounts.get_donor!(donor.id)
+    end
+
+    test "delete_donor/1 deletes the donor" do
+      donor = donor_fixture()
+      assert {:ok, %Donor{}} = Accounts.delete_donor(donor)
+      assert_raise Ecto.NoResultsError, fn -> Accounts.get_donor!(donor.id) end
+    end
+
+    test "change_donor/1 returns a donor changeset" do
+      donor = donor_fixture()
+      assert %Ecto.Changeset{} = Accounts.change_donor(donor)
+    end
+  end
 end

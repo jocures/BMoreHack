@@ -19,6 +19,41 @@ header section.container {
   padding: 1rem 0;
 }
 
+<<<<<<< HEAD
 .lvl-footer {
   background-color: #f5f5f5;
+=======
+.raise_percentage {
+  height: 5rem;
+  border: solid 1px silver;
+  position: relative;
+}
+
+.raise_percentage .complete {
+  background-color: #0069d9;
+  height: 100%;
+  position: absolute;
+}
+
+.raise_percentage .percent_text {
+  min-width: 30rem;
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  color: rgb(0,0,0);
+  margin-top: 1rem;
+}
+
+iframe {
+  margin: 1rem;
+}
+
+main {
+  min-height: 60vh;
+>>>>>>> 93ac2184aa90d930374ce4b405215493840e26c6
+}
+
+.profile-image {
+  width: 10rem;
+  height: 10rem;
 }

@@ -1,0 +1,36 @@
+<section class="raise">
+  <h3><%= @candidate.first_name %> <%= @candidate.last_name %></h3>
+  <div class="row">
+    <%= render_profile_image(@candidate.profile_image) %>
+  </div>
+  <div class="row">
+    <div class="column">
+      <%= @candidate.pitch %>
+    </div>
+    <div class="column">
+      <h3>Current Percentage</h3>
+      <%= render_raise_percentage(@candidate, @total_donations) %>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <%= link "Donate", to: Routes.donate_path(@conn, :new, @candidate.slug), class: "button" %>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="column">
+      <h3><%= @candidate.first_name %>'s Pitch</h3>
+      <%= render_video_embed(@candidate.pitch_video_url) %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column">
+      <h3><%= @candidate.first_name %>'s Story</h3>
+      <%= render_story(@candidate.story) %>
+    </div>
+  </div>
+  <div class="row">
+    <%= link "Donate", to: Routes.donate_path(@conn, :new, @candidate.slug), class: "button" %>
+    <%= link "Share", to: Routes.donate_path(@conn, :show, @candidate.slug), class: "button button-outline" %>
+  </div>
+</section>

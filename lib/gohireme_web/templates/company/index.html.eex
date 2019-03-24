@@ -17,7 +17,7 @@
       <td><%= company.company_name %></td>
       <td><%= company.company_description %></td>
       <td><%= company.company_url %></td>
-      <td><%= company.company_logo %></td>
+      <td><%= render_logo(company.company_logo) %></td>
 
       <td>
         <%= link "Show", to: Routes.company_path(@conn, :show, company) %>
